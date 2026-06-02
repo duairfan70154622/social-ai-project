@@ -1,0 +1,7 @@
+from pymongo import MongoClient
+
+MONGO_URL = "mongodb+srv://70154622_db_user:RRumaLiHhWzLtFww@cluster0.pcwxg0l.mongodb.net/?appName=Cluster0"
+
+client = MongoClient(MONGO_URL)
+
+db = client["social_ai"]
