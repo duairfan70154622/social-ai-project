@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 fastapi
 uvicorn
+=======
+fastapi
+uvicorn
+>>>>>>> 9e3400cb1b58be65b665a86e42a4a38c67fc3f20
 pymongo

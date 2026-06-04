@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,4 +96,103 @@ loadTrends();
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Social Media Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .box {
+            background: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔥 AI Social Media Dashboard</h1>
+
+<!-- INPUT -->
+<input id="tweetInput" placeholder="Write a tweet...">
+<button onclick="addTweet()">Send</button>
+
+<!-- TWEETS -->
+<div class="box">
+    <h2>📌 Tweets</h2>
+    <div id="tweets"></div>
+</div>
+
+<!-- TRENDS -->
+<div class="box">
+    <h2>📊 Trends</h2>
+    <div id="trends"></div>
+</div>
+
+<script>
+const API = "http://127.0.0.1:8000";
+
+// ADD TWEET
+async function addTweet() {
+    let text = document.getElementById("tweetInput").value;
+
+    await fetch(`${API}/add-tweet?text=` + text, {
+        method: "POST"
+    });
+
+    loadTweets();
+    loadTrends();
+}
+
+// LOAD TWEETS
+async function loadTweets() {
+    let res = await fetch(`${API}/tweets`);
+    let data = await res.json();
+
+    document.getElementById("tweets").innerHTML =
+        data.tweets.map(t => `
+            <p>📝 ${t.text} — <b>${t.sentiment}</b></p>
+        `).join("");
+}
+
+// LOAD TRENDS
+async function loadTrends() {
+    let res = await fetch(`${API}/trends`);
+    let data = await res.json();
+
+    document.getElementById("trends").innerHTML =
+        data.trends.map(t => `
+            <p>🔥 ${t[0]} (${t[1]})</p>
+        `).join("");
+}
+
+// AUTO LOAD
+loadTweets();
+loadTrends();
+</script>
+
+</body>
+>>>>>>> 9e3400cb1b58be65b665a86e42a4a38c67fc3f20
 </html>
