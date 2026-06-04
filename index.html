@@ -1,198 +1,294 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Social Media Dashboard</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #f4f4f4;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Crew AI</title>
 
-        h1 {
-            color: #333;
-        }
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        input {
-            padding: 10px;
-            width: 300px;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        button {
-            padding: 10px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
+body{
+background:#0f172a;
+color:white;
+}
 
-        .box {
-            background: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-    </style>
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:250px;
+height:100%;
+background:#111827;
+padding:20px;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+padding:12px 0;
+color:#cbd5e1;
+}
+
+.main{
+margin-left:250px;
+padding:25px;
+}
+
+.hero{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+padding:25px;
+border-radius:15px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+.card h2{
+font-size:32px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
+}
+
+.panel{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #334155;
+text-align:left;
+}
+
+canvas{
+background:white;
+border-radius:10px;
+padding:10px;
+}
+</style>
 </head>
+
 <body>
 
-<h1>🔥 AI Social Media Dashboard</h1>
+<div class="sidebar">
+<h2>🤖 Media Crew AI</h2>
 
-<!-- INPUT -->
-<input id="tweetInput" placeholder="Write a tweet...">
-<button onclick="addTweet()">Send</button>
-
-<!-- TWEETS -->
-<div class="box">
-    <h2>📌 Tweets</h2>
-    <div id="tweets"></div>
+<ul>
+<li>Dashboard</li>
+<li>Listening Agent</li>
+<li>Sentiment Agent</li>
+<li>Trend Agent</li>
+<li>Response Agent</li>
+<li>Report Agent</li>
+<li>Settings</li>
+</ul>
 </div>
 
-<!-- TRENDS -->
-<div class="box">
-    <h2>📊 Trends</h2>
-    <div id="trends"></div>
+<div class="main">
+
+<div class="hero">
+<h1>AI Social Media Intelligence Dashboard</h1>
+<p>
+GPT-4o • Twitter/X API • Reddit API • Instagram API • Brandwatch
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2>15,420</h2>
+<p>Total Mentions</p>
+</div>
+
+<div class="card">
+<h2>68%</h2>
+<p>Positive Sentiment</p>
+</div>
+
+<div class="card">
+<h2>17%</h2>
+<p>Negative Sentiment</p>
+</div>
+
+<div class="card">
+<h2>846</h2>
+<p>Auto Responses</p>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="panel">
+<h3>Mentions by Platform</h3>
+<canvas id="mentionsChart"></canvas>
+</div>
+
+<div class="panel">
+<h3>Sentiment Analysis</h3>
+<canvas id="sentimentChart"></canvas>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="panel">
+<h3>AI Agent Workflow</h3>
+
+<br>
+
+Twitter/X API → Listening Agent<br><br>
+Reddit API → Sentiment Agent<br><br>
+Instagram API → Trend Agent<br><br>
+Brandwatch → Response Agent<br><br>
+Report Agent → Weekly Insights
+
+</div>
+
+<div class="panel">
+<h3>Trending Topics</h3>
+
+<br>
+
+🔥 AI Agents (+42%)<br><br>
+🚀 GPT-4o (+35%)<br><br>
+⚡ FastAPI (+29%)<br><br>
+📊 MongoDB (+21%)<br><br>
+📣 Social Listening (+18%)
+
+</div>
+
+</div>
+
+<div class="panel" style="margin-top:20px;">
+<h3>Recent Mentions</h3>
+
+<table>
+<tr>
+<th>Platform</th>
+<th>User</th>
+<th>Sentiment</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Twitter/X</td>
+<td>@john</td>
+<td>Positive</td>
+<td>Replied</td>
+</tr>
+
+<tr>
+<td>Reddit</td>
+<td>u/techguy</td>
+<td>Negative</td>
+<td>Pending</td>
+</tr>
+
+<tr>
+<td>Instagram</td>
+<td>@digitalhub</td>
+<td>Positive</td>
+<td>Replied</td>
+</tr>
+
+</table>
+</div>
+
+<div class="panel" style="margin-top:20px;">
+<h3>AI Generated Response</h3>
+
+<br>
+
+<p>
+Customer support is too slow.
+</p>
+
+<br>
+
+<p>
+Thank you for your feedback. We apologize for the delay and are actively working to improve response times.
+</p>
+
+</div>
+
+<div class="panel" style="margin-top:20px;">
+<h3>Weekly Insights</h3>
+
+<br>
+
+<ul>
+<li>Positive sentiment increased by 12%</li>
+<li>Negative mentions decreased by 7%</li>
+<li>GPT-4o discussions are growing rapidly</li>
+<li>Twitter/X generated highest engagement</li>
+<li>Best posting time: 7 PM – 9 PM</li>
+</ul>
+
+</div>
+
 </div>
 
 <script>
-const API = "http://127.0.0.1:8000";
 
-// ADD TWEET
-async function addTweet() {
-    let text = document.getElementById("tweetInput").value;
-
-    await fetch(`${API}/add-tweet?text=` + text, {
-        method: "POST"
-    });
-
-    loadTweets();
-    loadTrends();
+new Chart(document.getElementById('mentionsChart'),{
+type:'bar',
+data:{
+labels:['Twitter','Instagram','Reddit','Brandwatch'],
+datasets:[{
+label:'Mentions',
+data:[5200,4100,2700,3420]
+}]
 }
+});
 
-// LOAD TWEETS
-async function loadTweets() {
-    let res = await fetch(`${API}/tweets`);
-    let data = await res.json();
-
-    document.getElementById("tweets").innerHTML =
-        data.tweets.map(t => `
-            <p>📝 ${t.text} — <b>${t.sentiment}</b></p>
-        `).join("");
+new Chart(document.getElementById('sentimentChart'),{
+type:'pie',
+data:{
+labels:['Positive','Neutral','Negative'],
+datasets:[{
+data:[68,15,17]
+}]
 }
+});
 
-// LOAD TRENDS
-async function loadTrends() {
-    let res = await fetch(`${API}/trends`);
-    let data = await res.json();
-
-    document.getElementById("trends").innerHTML =
-        data.trends.map(t => `
-            <p>🔥 ${t[0]} (${t[1]})</p>
-        `).join("");
-}
-
-// AUTO LOAD
-loadTweets();
-loadTrends();
 </script>
 
 </body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AI Social Media Dashboard</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #f4f4f4;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        input {
-            padding: 10px;
-            width: 300px;
-        }
-
-        button {
-            padding: 10px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        .box {
-            background: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<h1>🔥 AI Social Media Dashboard</h1>
-
-<!-- INPUT -->
-<input id="tweetInput" placeholder="Write a tweet...">
-<button onclick="addTweet()">Send</button>
-
-<!-- TWEETS -->
-<div class="box">
-    <h2>📌 Tweets</h2>
-    <div id="tweets"></div>
-</div>
-
-<!-- TRENDS -->
-<div class="box">
-    <h2>📊 Trends</h2>
-    <div id="trends"></div>
-</div>
-
-<script>
-const API = "http://127.0.0.1:8000";
-
-// ADD TWEET
-async function addTweet() {
-    let text = document.getElementById("tweetInput").value;
-
-    await fetch(`${API}/add-tweet?text=` + text, {
-        method: "POST"
-    });
-
-    loadTweets();
-    loadTrends();
-}
-
-// LOAD TWEETS
-async function loadTweets() {
-    let res = await fetch(`${API}/tweets`);
-    let data = await res.json();
-
-    document.getElementById("tweets").innerHTML =
-        data.tweets.map(t => `
-            <p>📝 ${t.text} — <b>${t.sentiment}</b></p>
-        `).join("");
-}
-
-// LOAD TRENDS
-async function loadTrends() {
-    let res = await fetch(`${API}/trends`);
-    let data = await res.json();
-
-    document.getElementById("trends").innerHTML =
-        data.trends.map(t => `
-            <p>🔥 ${t[0]} (${t[1]})</p>
-        `).join("");
-}
-
-// AUTO LOAD
-loadTweets();
-loadTrends();
-</script>
-
-</body>
->>>>>>> 9e3400cb1b58be65b665a86e42a4a38c67fc3f20
 </html>
