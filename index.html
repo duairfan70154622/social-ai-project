@@ -3,292 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Media Crew AI</title>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#0f172a;
-color:white;
+background:#0b1120;
 }
-
-.sidebar{
-position:fixed;
-left:0;
-top:0;
-width:250px;
-height:100%;
-background:#111827;
-padding:20px;
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.08);
 }
-
-.sidebar h2{
-margin-bottom:30px;
-}
-
-.sidebar ul{
-list-style:none;
-}
-
-.sidebar li{
-padding:12px 0;
-color:#cbd5e1;
-}
-
-.main{
-margin-left:250px;
-padding:25px;
-}
-
-.hero{
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-padding:25px;
-border-radius:15px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:20px;
-}
-
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-}
-
-.card h2{
-font-size:32px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:20px;
-}
-
-.panel{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th,td{
-padding:10px;
-border-bottom:1px solid #334155;
-text-align:left;
-}
-
-canvas{
-background:white;
-border-radius:10px;
-padding:10px;
+.card-hover:hover{
+transform:translateY(-5px);
+transition:.3s;
 }
 </style>
+
 </head>
 
-<body>
+<body class="text-white">
 
-<div class="sidebar">
-<h2>🤖 Media Crew AI</h2>
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-<ul>
-<li>Dashboard</li>
-<li>Listening Agent</li>
-<li>Sentiment Agent</li>
-<li>Trend Agent</li>
-<li>Response Agent</li>
-<li>Report Agent</li>
-<li>Settings</li>
-</ul>
-</div>
+<h1 class="text-2xl font-bold">
+🚀 Media Crew AI
+</h1>
 
-<div class="main">
-
-<div class="hero">
-<h1>AI Social Media Intelligence Dashboard</h1>
-<p>
-GPT-4o • Twitter/X API • Reddit API • Instagram API • Brandwatch
-</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h2>15,420</h2>
-<p>Total Mentions</p>
-</div>
-
-<div class="card">
-<h2>68%</h2>
-<p>Positive Sentiment</p>
-</div>
-
-<div class="card">
-<h2>17%</h2>
-<p>Negative Sentiment</p>
-</div>
-
-<div class="card">
-<h2>846</h2>
-<p>Auto Responses</p>
+<div class="space-x-6 hidden md:flex">
+<a href="#" class="hover:text-cyan-400">Dashboard</a>
+<a href="#" class="hover:text-cyan-400">Analytics</a>
+<a href="#" class="hover:text-cyan-400">Reports</a>
+<a href="#" class="hover:text-cyan-400">Settings</a>
 </div>
 
 </div>
+</nav>
 
-<div class="grid">
+<section class="pt-32 pb-16">
 
-<div class="panel">
-<h3>Mentions by Platform</h3>
-<canvas id="mentionsChart"></canvas>
-</div>
+<div class="max-w-7xl mx-auto px-6 text-center">
 
-<div class="panel">
-<h3>Sentiment Analysis</h3>
-<canvas id="sentimentChart"></canvas>
-</div>
+<h1 class="text-6xl font-bold mb-6">
+AI Powered Social Listening
+</h1>
 
-</div>
-
-<div class="grid">
-
-<div class="panel">
-<h3>AI Agent Workflow</h3>
-
-<br>
-
-Twitter/X API → Listening Agent<br><br>
-Reddit API → Sentiment Agent<br><br>
-Instagram API → Trend Agent<br><br>
-Brandwatch → Response Agent<br><br>
-Report Agent → Weekly Insights
-
-</div>
-
-<div class="panel">
-<h3>Trending Topics</h3>
-
-<br>
-
-🔥 AI Agents (+42%)<br><br>
-🚀 GPT-4o (+35%)<br><br>
-⚡ FastAPI (+29%)<br><br>
-📊 MongoDB (+21%)<br><br>
-📣 Social Listening (+18%)
-
-</div>
-
-</div>
-
-<div class="panel" style="margin-top:20px;">
-<h3>Recent Mentions</h3>
-
-<table>
-<tr>
-<th>Platform</th>
-<th>User</th>
-<th>Sentiment</th>
-<th>Status</th>
-</tr>
-
-<tr>
-<td>Twitter/X</td>
-<td>@john</td>
-<td>Positive</td>
-<td>Replied</td>
-</tr>
-
-<tr>
-<td>Reddit</td>
-<td>u/techguy</td>
-<td>Negative</td>
-<td>Pending</td>
-</tr>
-
-<tr>
-<td>Instagram</td>
-<td>@digitalhub</td>
-<td>Positive</td>
-<td>Replied</td>
-</tr>
-
-</table>
-</div>
-
-<div class="panel" style="margin-top:20px;">
-<h3>AI Generated Response</h3>
-
-<br>
-
-<p>
-Customer support is too slow.
+<p class="text-gray-400 text-xl max-w-3xl mx-auto">
+Monitor Twitter, Reddit and Instagram mentions using AI Agents.
+Analyze sentiment, detect trends and generate responses instantly.
 </p>
 
-<br>
-
-<p>
-Thank you for your feedback. We apologize for the delay and are actively working to improve response times.
-</p>
-
-</div>
-
-<div class="panel" style="margin-top:20px;">
-<h3>Weekly Insights</h3>
-
-<br>
-
-<ul>
-<li>Positive sentiment increased by 12%</li>
-<li>Negative mentions decreased by 7%</li>
-<li>GPT-4o discussions are growing rapidly</li>
-<li>Twitter/X generated highest engagement</li>
-<li>Best posting time: 7 PM – 9 PM</li>
-</ul>
-
+<div class="mt-10">
+<button class="bg-cyan-500 px-8 py-4 rounded-xl font-semibold hover:bg-cyan-600">
+Launch Dashboard
+</button>
 </div>
 
 </div>
 
-<script>
+</section>
 
-new Chart(document.getElementById('mentionsChart'),{
-type:'bar',
-data:{
-labels:['Twitter','Instagram','Reddit','Brandwatch'],
-datasets:[{
-label:'Mentions',
-data:[5200,4100,2700,3420]
-}]
-}
-});
+<section class="max-w-7xl mx-auto px-6 py-10">
 
-new Chart(document.getElementById('sentimentChart'),{
-type:'pie',
-data:{
-labels:['Positive','Neutral','Negative'],
-datasets:[{
-data:[68,15,17]
-}]
-}
-});
+<div class="grid md:grid-cols-4 gap-6">
 
-</script>
+<div class="glass rounded-3xl p-6 card-hover">
+<h3 class="text-gray-400">Mentions</h3>
+<h1 class="text-4xl font-bold mt-3">12,438</h1>
+<p class="text-green-400 mt-2">+18%</p>
+</div>
+
+<div class="glass rounded-3xl p-6 card-hover">
+<h3 class="text-gray-400">Positive</h3>
+<h1 class="text-4xl font-bold mt-3">82%</h1>
+<p class="text-green-400 mt-2">Excellent</p>
+</div>
+
+<div class="glass rounded-3xl p-6 card-hover">
+<h3 class="text-gray-400">Negative</h3>
+<h1 class="text-4xl font-bold mt-3">11%</h1>
+<p class="text-red-400 mt-2">Low Risk</p>
+</div>
+
+<div class="glass rounded-3xl p-6 card-hover">
+<h3 class="text-gray-400">Trends</h3>
+<h1 class="text-4xl font-bold mt-3">27</h1>
+<p class="text-cyan-400 mt-2">Growing</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="max-w-7xl mx-auto px-6 py-10">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="glass rounded-3xl p-6">
+<h2 class="text-2xl font-bold mb-4">
+📊 Sentiment Analysis
+</h2>
+
+<div class="h-64 flex items-end gap-6">
+
+<div class="bg-green-500 w-16 h-52 rounded-xl"></div>
+<div class="bg-yellow-500 w-16 h-36 rounded-xl"></div>
+<div class="bg-red-500 w-16 h-20 rounded-xl"></div>
+
+</div>
+
+<div class="flex gap-6 mt-4">
+<span>Positive</span>
+<span>Neutral</span>
+<span>Negative</span>
+</div>
+
+</div>
+
+<div class="glass rounded-3xl p-6">
+
+<h2 class="text-2xl font-bold mb-4">
+🔥 Trending Topics
+</h2>
+
+<div class="flex flex-wrap gap-3">
+
+<span class="bg-cyan-500 px-4 py-2 rounded-full">
+#AI
+</span>
+
+<span class="bg-purple-500 px-4 py-2 rounded-full">
+#OpenAI
+</span>
+
+<span class="bg-pink-500 px-4 py-2 rounded-full">
+#GPT4o
+</span>
+
+<span class="bg-blue-500 px-4 py-2 rounded-full">
+#MachineLearning
+</span>
+
+<span class="bg-green-500 px-4 py-2 rounded-full">
+#Automation
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="max-w-7xl mx-auto px-6 py-10">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="glass rounded-3xl p-6">
+
+<h2 class="text-2xl font-bold mb-5">
+👂 Latest Mentions
+</h2>
+
+<div class="space-y-4">
+
+<div class="bg-slate-800 p-4 rounded-xl">
+Great AI monitoring platform!
+</div>
+
+<div class="bg-slate-800 p-4 rounded-xl">
+Need more analytics features.
+</div>
+
+<div class="bg-slate-800 p-4 rounded-xl">
+Amazing dashboard UI.
+</div>
+
+</div>
+
+</div>
+
+<div class="glass rounded-3xl p-6">
+
+<h2 class="text-2xl font-bold mb-5">
+🤖 AI Responses
+</h2>
+
+<div class="space-y-4">
+
+<div class="bg-slate-800 p-4 rounded-xl">
+Thank you for your valuable feedback.
+</div>
+
+<div class="bg-slate-800 p-4 rounded-xl">
+We appreciate your support.
+</div>
+
+<div class="bg-slate-800 p-4 rounded-xl">
+Our team is actively improving analytics.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="max-w-7xl mx-auto px-6 py-10">
+
+<div class="glass rounded-3xl p-8">
+
+<h2 class="text-3xl font-bold mb-6">
+📑 Weekly Report
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<h3 class="font-bold">Total Mentions</h3>
+<p class="text-4xl mt-2">12.4K</p>
+</div>
+
+<div>
+<h3 class="font-bold">Engagement</h3>
+<p class="text-4xl mt-2">87%</p>
+</div>
+
+<div>
+<h3 class="font-bold">Reach</h3>
+<p class="text-4xl mt-2">1.2M</p>
+</div>
+
+</div>
+
+<button class="mt-8 bg-cyan-500 px-6 py-3 rounded-xl">
+Download Report
+</button>
+
+</div>
+
+</section>
+
+<footer class="text-center py-10 text-gray-500">
+Media Crew AI © 2026
+</footer>
 
 </body>
 </html>
