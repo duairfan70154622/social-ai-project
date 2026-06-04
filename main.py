@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from collections import Counter
 from database import db
+from collections import Counter
 
 app = FastAPI()
 
@@ -34,8 +34,19 @@ def add_tweet(text: str):
     }
 
 # GET TWEETS
-@app.get("/tweets")
-def get_tweets():
+@app.post("/add-tweet")
+def add_tweet(text: str):
+
+    try:
+        collection.insert_one({
+            "text": text,
+            "sentiment": "ok"
+        })
+
+        return {"status": "saved"}
+
+    except Exception as e:
+        return {"error": str(e)}
 
     data = list(collection.find({}, {"_id": 0}))
 
@@ -65,3 +76,9 @@ def trends():
     return {
         "trends": top_words
     }
+import os
+import uvicorn
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
